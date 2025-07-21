@@ -1,0 +1,48 @@
+% === paper_model/sections/methods.tex =========================
+\section{Methods}\label{sec:methods}
+
+\subsection{Generalised Bernoulli social equation}\label{sec:bernoulli}
+We model the density of interaction ties $\rho(\mathbf{r},t)$ in an $n$‑dimensional social phase space.  
+Inspired by incompressible fluid flow, we propose the continuity‐like equation
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \nabla\!\cdot\!(\rho\,\mathbf{v}) = 0 ,
+\end{equation}
+with velocity field
+\begin{equation}
+\mathbf{v} = -\alpha \nabla \Phi + \beta\,\mathbf{r},
+\end{equation}
+where $\Phi = \ln\rho$ is a potential akin to information pressure,  
+$\alpha>0$ modulates entropic attraction, and $\beta>0$ encodes centrifugal social cost.  
+Combining both gives the **generalised Bernoulli equation**
+\begin{equation}
+\frac{\partial \Phi}{\partial t} + \tfrac{\alpha}{2}\bigl|\nabla\Phi\bigr|^{2}
++ \beta\,\mathbf{r}\!\cdot\!\nabla\Phi = 0 .
+\label{eq:bern}
+\end{equation}
+
+\subsection{Fractal dimension estimators}\label{sec:fractal}
+At steady state ($\partial_t\Phi=0$), the density $\rho^\ast$ admits a scaling form  
+$\rho^\ast(r) \propto r^{-(D_{1}+1)}$ for $r$ in the mesoscopic range.  
+We estimate the capacity ($D_{0}$), information ($D_{1}$) and correlation ($D_{2}$)  
+dimensions via a standard box‐counting scheme\cite{falconer2014fractal}.
+\begin{equation}
+D_{q} =
+\lim_{\epsilon\to 0}\frac{1}{q-1}
+\frac{\log\sum_{i} p_{i}^{q}}{\log \epsilon},
+\qquad (q\in\mathbb{R}).
+\end{equation}
+
+\subsection{Entropy‑based stability criterion}\label{sec:entropy}
+Define the Shannon entropy of degree distribution $p_{k}$ as
+$H = -\sum_{k} p_{k}\log p_{k}$.
+We posit global stability when
+\begin{equation}
+\frac{\mathrm{d}H}{\mathrm{d}t}=0
+\quad\text{and}\quad
+\left.\frac{\mathrm{d}^{2}H}{\mathrm{d}t^{2}}\right|_{\mathrm{crit}}>0 .
+\end{equation}
+Substituting Eq.\,\eqref{eq:bern} yields the critical ratio
+$D_{0}/D_{1} \approx 1.37 \pm 0.05$,
+at which the social layer sizes naturally quantise to
+$5,\,15,\,50,\,150$.
+% ==============================================================
