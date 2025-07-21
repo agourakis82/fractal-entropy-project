@@ -33,6 +33,42 @@ D_{q} =
 \end{equation}
 
 \subsection{Entropy‑based stability criterion}\label{sec:entropy}
+\begin{table}[h]
+\caption{Symbols and units used throughout the manuscript}
+\centering
+\begin{tabular}{lll}
+\hline
+Symbol & Meaning & Unit (SI)\\\hline
+$\rho(\mathbf{r},t)$ & Social tie density & ties\,m$^{-n}$\\
+$\mathbf{v}$ & Social flow velocity & m\,s$^{-1}$\\
+$\Phi$ & Informational potential $\ln\rho$ & —\\
+$\alpha$ & Entropic attraction coefficient & m$^{2}$\,s$^{-1}$\\
+$\beta$ & Radial cost coefficient & s$^{-1}$\\
+$D_{0,1,2}$ & Fractal dimensions & —\\
+$H$ & Shannon entropy & nat\\\hline
+\end{tabular}
+\label{tab:symbols}
+\end{table}
+
+| Símbolo | Descrição | Unidade SI |
+|---------|-----------|------------|
+| $begin:math:text$\\rho(\\mathbf{r},t)$end:math:text$ | densidade de laços sociais | ties · m$begin:math:text$^{-n}$end:math:text$ |
+| $begin:math:text$\\mathbf{v}$end:math:text$ | “velocidade” de fluxo social | m · s$begin:math:text$^{-1}$end:math:text$ |
+| $begin:math:text$\\Phi = \\ln \\rho$end:math:text$ | potencial informacional | — |
+| $begin:math:text$\\alpha$end:math:text$ | coeficiente de atração entrópica | m$begin:math:text$^2$end:math:text$ · s$begin:math:text$^{-1}$end:math:text$ |
+| $begin:math:text$\\beta$end:math:text$ | coeficiente de custo radial | s$begin:math:text$^{-1}$end:math:text$ |
+| $begin:math:text$D_0, D_1, D_2$end:math:text$ | dimensões de capacidade, informação, correlação | — |
+| $begin:math:text$H$end:math:text$ | entropia de Shannon | nat |
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \nabla\!\cdot\!(\rho\,\mathbf{v}) = 0 ,
+\label{eq:continuity}
+\end{equation}
+
+\begin{equation}
+\mathbf{v} = -\alpha \nabla \Phi + \beta\,\mathbf{r},
+\label{eq:vfield}
+\end{equation}
 Define the Shannon entropy of degree distribution $p_{k}$ as
 $H = -\sum_{k} p_{k}\log p_{k}$.
 We posit global stability when
