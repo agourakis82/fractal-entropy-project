@@ -12,6 +12,16 @@ jobs:
         run: |
           cd paper_model
           latexmk -pdf -silent main.tex
+      - name: Show first 120 lines of main.log on failure
+        if: failure()
+        run: |
+          if [ -f paper_model/main.log ]; then
+            echo "---- main.log (head) ----"
+            head -n 120 paper_model/main.log
+            echo "---- end main.log ------"
+          else
+            echo "main.log not found"
+          fi
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
