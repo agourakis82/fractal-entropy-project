@@ -1,3 +1,6 @@
+\IfFileExists{rsproca.cls}{\documentclass{rsproca}}{\documentclass{article}}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,graphicx}
 \documentclass{rsproca_new} %Use Royal Society Later
 \usepackage{natbib,amsmath,amssymb,graphicx}
 \input{sections/methods}
@@ -12,10 +15,11 @@
 \section{Introduction}
 % TODO
 
+\input{sections/methods}
 \section{Methods}
 \subsection{Generalised Bernoulli Equation}
 % TODO
-
+\input{sections/results}
 \section{Results}
 % TODO
 
@@ -23,7 +27,7 @@
 % TODO
 
 \section{Conclusion}
-\bibliographystyle{plainnat}
+\bibliographystyle{vancouver}
 \nocite{falconer2014fractal}
-\bibliography{sections/refs.bib}
+\bibliography{refs}
 \end{document}
