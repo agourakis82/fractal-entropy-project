@@ -12,3 +12,4 @@
 # PDFs gerados localmente
 paper_model/*.pdf
 !paper_model/figs/*.pdf   # mantemos as figuras
+.DS_Store
