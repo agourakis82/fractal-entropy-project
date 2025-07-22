@@ -1,33 +1,26 @@
-\IfFileExists{rsproca.cls}{\documentclass{rsproca}}{\documentclass{article}}
+% ─── Classe ──────────────────────────────────────────────────────────────
+\IfFileExists{rsproca.cls}
+  {\documentclass{rsproca}}      % usa a classe oficial se estiver no projeto
+  {\documentclass{article}}      % fallback local/CI
+
+% ─── Pacotes essenciais ─────────────────────────────────────────────────
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,graphicx}
-\usepackage{natbib}
-\usepackage{natbib,amsmath,amssymb,graphicx}
-\input{sections/methods}
-\input{sections/results}
+\usepackage{natbib}              % apenas UMA vez
+\usepackage{xcolor}              % se realmente precisar
+
+% ─── Documento começa aqui ──────────────────────────────────────────────
 \begin{document}
+
 \title{Fractal Entropy and Bernoulli Dynamics in Social Layering}
-\author{Demetrios Chiuratto Agourakis}
-%\begin{abstract}
-% TODO: 200 palavras claras; 5 keywords
-%\end{abstract}
+\author{Demetrios C.\ Agourakis}
+\maketitle                        % ✓ título aparece
 
-%\section{Introduction}
-% TODO
+\input{sections/methods}          % Secção 1
+\input{sections/results}          % Secção 2
+% (quando escrever) \input{sections/discussion}
 
-\input{sections/methods}
-%\section{Methods}
-%\subsection{Generalised Bernoulli Equation}
-% TODO
-\input{sections/results}
-%\section{Results}
-% TODO
-
-%\section{Discussion}
-% TODO
-
-%\section{Conclusion}
 \bibliographystyle{vancouver}
-%\nocite{falconer2014fractal}
 \bibliography{refs}
+
 \end{document}
