@@ -31,3 +31,6 @@ jobs:
           pip install -r requirements.txt
       - name: Run demo
         run: python code/demo_run.py
+      - name: Build analytical figures
+        run: |
+          python code/plot_figs.py
