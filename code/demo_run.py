@@ -1,6 +1,6 @@
 from pathlib import Path
 from mc_sim import run_sim
-from box_dimension import box_count_dimension
+from code.box_count_dimension import box_count_dimension
 import pandas as pd
 
 # --- Monte Carlo mínimo -----------------------------------------------------
