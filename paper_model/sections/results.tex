@@ -64,3 +64,17 @@ This expression, derived from symbolic kinetic theory, attains stationarity when
 \frac{\mathrm{d}H}{\mathrm{d}(\beta/\alpha)} = 0 \quad \Rightarrow \quad \frac{D_0}{D_1} = \sqrt{\frac{\pi}{2}} \approx 1.37,
 \]
 which coincides with the empirical ratio observed in social fractal analysis by Zhou et al.~\cite{zhou2005}. This value defines the condition of maximal informational stability under constrained complexity — a symbolic resonance point where structural coherence and expressive diversity are in dynamic equilibrium.
+
+\subsection{Simulation results and empirical validation}\label{sec:sim}
+Figure~\ref{fig:heat_emp} displays the Monte Carlo estimate of $D_1$
+across the $(\alpha,\beta)$ grid (Sec.~\ref{sec:methods}).
+The minimum at $\alpha{\,=\,}0.3$, $\beta{\,=\,}0.02$ gives
+$D_1^{\text{sim}}=1.19\,(95\%\text{CI}\,1.15$–$1.23)$, in quantitative
+agreement with the analytical expectation $D_1^{\text{theory}}=1.17$
+(Fig.~\ref{fig:heat_theory}).
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/Fig4_heatmap_empirical.pdf}
+  \caption{Empirical $D_1$ after $10^4$ steps on $N=10^4$ nodes.}
+  \label{fig:heat_emp}
+\end{figure}
