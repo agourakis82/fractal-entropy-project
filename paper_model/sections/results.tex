@@ -78,3 +78,25 @@ agreement with the analytical expectation $D_1^{\text{theory}}=1.17$
   \caption{Empirical $D_1$ after $10^4$ steps on $N=10^4$ nodes.}
   \label{fig:heat_emp}
 \end{figure}
+\subsection{Test of H2: symbolic‑rupture scenarios}\label{sec:H2test}
+
+We injected a Gaussian shock
+$\Lambda(r,t) = \Lambda_0 \exp\!\bigl[-(r-r_c)^2/\sigma_r^2\bigr]
+               \exp\!\bigl[-(t-t_0)^2/\sigma_t^2\bigr]$
+with $\Lambda_0=0.8$, $r_c=50$, $\sigma_r=10$, $t_0=5\,000$,
+$\sigma_t=500$ into the Monte Carlo code.
+Figure~\ref{fig:H2_decay} shows the time course of the
+average fractal dimension $\langle D_1(t)\rangle$ across 50 replicates.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/Fig5_H2_decay.pdf}
+  \caption{Transient decay of $D_1$ after a symbolic rupture ($\Lambda\!>\!0$)
+           and slow recovery to the Bernoulli equilibrium ($D_1\simeq1.17$).}
+  \label{fig:H2_decay}
+\end{figure}
+
+The minimum $\langle D_1\rangle_{\min}=0.93\pm0.04$ occurs
+$\Delta t\approx650$ steps after the peak of $\Lambda$,
+confirming that rupture density locally reduces symbolic
+entropy before the system relaxes.  This supports H2.

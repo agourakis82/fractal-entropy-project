@@ -7,7 +7,7 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1753274483.91315 "/Users/demetriosagourakis/Documents/Fractal Entropy Project/fractal-entropy-project/paper_model/main.tex" "main.pdf" "main" 1753274484.46002 2
+["pdflatex"] 1753289525.63485 "/Users/demetriosagourakis/Documents/Fractal Entropy Project/fractal-entropy-project/paper_model/main.tex" "main.pdf" "main" 1753289526.20915 2
   "/Users/demetriosagourakis/Documents/Fractal Entropy Project/fractal-entropy-project/paper_model/main.tex" 1753222657.18908 1276 aa5c885a297aebf919a28d3cd79e7a7f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -79,12 +79,13 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1753099538 3345741 2efadd24ff56614e803c6ff8c0cecbe8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "figs/Fig1_density.pdf" 1753226639.90108 13873 c3dc11cd6b5a16aa6a3c9140cc121bc9 ""
-  "figs/Fig4_heatmap_empirical.pdf" 0 -1 0 ""
-  "main.aux" 1753274484.23988 2383 3dff029c6df24657344f00667125d88b "pdflatex"
+  "figs/Fig4_heatmap_empirical.pdf" 1753289386.64261 19074 24d45f96e446768f526cb18491b88b3e ""
+  "figs/Fig5_H2_decay.pdf" 0 -1 0 ""
+  "main.aux" 1753289525.95856 3099 2c73c33df00b79a914deb756a4e503fe "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
   "main.tex" 1753222657.18908 1276 aa5c885a297aebf919a28d3cd79e7a7f ""
-  "sections/methods.tex" 1753222657.1897 2857 29481b516a075b46f34366a04c2f6ec0 ""
-  "sections/results.tex" 1753274482.96953 4675 d97e73a6cdd785e12a039268996a3817 ""
+  "sections/methods.tex" 1753289465.00083 3750 2a1471fd66557abb290f3f1d36080706 ""
+  "sections/results.tex" 1753289524.85678 5647 474c418ce1169eb08229a8d5ea57f35e ""
   (generated)
   "main.aux"
   "main.log"

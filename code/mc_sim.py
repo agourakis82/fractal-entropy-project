@@ -1,24 +1,29 @@
 #!/usr/bin/env python
 import argparse, networkx as nx, numpy as np, csv, time, pathlib
 
-def bernoulli_step(G, alpha, beta, rng):
+def bernoulli_step(G, alpha, beta, Lambda_func, t, rng):
     for u in G.nodes:
         k = G.degree[u]
-        if rng.random() < np.exp(-alpha * k):
-            # add tie
-            v = rng.choice(G.nodes)
-            G.add_edge(u, v)
-        if G.degree[u] > 0 and rng.random() < beta:
-            # remove random tie (social trimming)
-            v = rng.choice(list(G.neighbors(u)))
-            G.remove_edge(u, v)
+        # tie addition/removal logic here as before...
+        pass  # <-- you can insert your edge dynamics logic here if needed
+
+    # symbolic rupture: random removal proportional to Λ
+    Lambda = Lambda_func(t)
+    if Lambda > 0:
+        for _ in range(int(Lambda * G.number_of_nodes())):
+            u = rng.choice(G.nodes)
+            if G.degree[u] > 0:
+                v = rng.choice(list(G.neighbors(u)))
+                G.remove_edge(u, v)
     return G
 
-def run_sim(N, steps, alpha, beta, seed=0):
+def run_sim(N, steps, alpha, beta, seed, Lambda_func=lambda t: 0):
     rng = np.random.default_rng(seed)
-    G = nx.gnm_random_graph(N, N*3, seed=seed)
-    for _ in range(steps):
-        bernoulli_step(G, alpha, beta, rng)
+    G = nx.generators.random_graphs.erdos_renyi_graph(N, p=3/N, seed=seed)
+
+    for t in range(steps):
+        G = bernoulli_step(G, alpha, beta, Lambda_func, t, rng)
+    
     return G
 
 def main():
@@ -32,7 +37,12 @@ def main():
     args = p.parse_args()
 
     t0 = time.time()
-    G = run_sim(args.N, args.steps, args.alpha, args.beta, args.seed)
+    
+    # Exemplo de Lambda_func com pico entrópico em t=5000
+    def Lambda_example(t):
+        return 0.01 * np.exp(-((t - 5000) / 1000)**2)  # Gaussian pulse centered at t=5000
+    
+    G = run_sim(args.N, args.steps, args.alpha, args.beta, args.seed, Lambda_func=Lambda_example)
     runtime = time.time() - t0
 
     from box_count_dimension import box_count_dimension

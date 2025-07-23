@@ -120,6 +120,11 @@ INPUT ./figs/Fig1_density.pdf
 INPUT ./figs/Fig1_density.pdf
 INPUT ./figs/Fig1_density.pdf
 INPUT ./figs/Fig1_density.pdf
+INPUT ./figs/Fig4_heatmap_empirical.pdf
+INPUT ./figs/Fig4_heatmap_empirical.pdf
+INPUT ./figs/Fig4_heatmap_empirical.pdf
+INPUT ./figs/Fig4_heatmap_empirical.pdf
+INPUT ./figs/Fig4_heatmap_empirical.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT main.aux
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
