@@ -1,19 +1,17 @@
 name: neurofractal
-channels:
-  - conda-forge
-  - r
+channels: [conda-forge, r]
 dependencies:
-  # Conda packages
-  - python=3.11
+  - python=3.10
   - r-base=4.3
-  - r-metafor
-  - r-robumeta
+  - r-revtools        # triagem & deduplicação
+  - r-metagear        # extração & forms
+  - r-metafor         # meta‑análise
+  - r-prisma          # fluxograma PRISMA (ou 'PRISMA2020')
+  - r-robvis          # risco de viés visual
+  - r-tidyverse
+  - r-readxl
+  - r-devtools
   - jupyterlab
-  - pandas
-  - numpy
-  - matplotlib
-  - seaborn
-
-  # Pip subsection (must be nested)
+  - asreview          # (pip) active‑learning screening (opcional)
   - pip:
-    - git+https://github.com/rayyanqcri/rayyan-client.git
+      - asreview
