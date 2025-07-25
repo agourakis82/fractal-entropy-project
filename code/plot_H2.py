@@ -1,7 +1,13 @@
 import pandas as pd, matplotlib.pyplot as plt, numpy as np, pathlib
-ts = pd.read_csv("../paper_data/H2_timeseries.csv", squeeze=True)
-t = np.arange(len(ts))*200
-plt.plot(t, ts)
+
+# localizar CSV
+root = pathlib.Path(__file__).resolve().parent.parent / "paper_data"
+csv = root / "H2_timeseries.csv"
+if not csv.exists():
+    raise FileNotFoundError(f"{csv} não encontrado – rode run_rupture.py antes.")
+
+# ler como DataFrame e converter para Series
+ts = pd.read_csv(csv, header=None).iloc[:, 0]   # primeira coluna
 plt.axvline(5000, linestyle="--", label=r"peak $\Lambda$")
 plt.xlabel("t")
 plt.ylabel(r"$D_1$")
