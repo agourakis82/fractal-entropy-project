@@ -16,4 +16,4 @@ dependencies:
 
   # Pip subsection (must be nested)
   - pip:
-      - rayyan==0.1.0
+    - git+https://github.com/rayyanqcri/rayyan-client.git
