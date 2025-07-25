@@ -1,0 +1,13 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def bernoulli_flow(D_H, g=9.81, h=1.0, R=1.0, r=np.linspace(0, 1, 200)):
+    """Compute Bernoulli‑type velocity profile for a fractal dimension D_H."""
+    v = np.sqrt(2 * g * h * (1 - (r / R) ** D_H))
+    return r, v
+
+def entropic_inertia(D_H_init, D_H_shock, recovery_tau=0.06, t=np.linspace(0, 1, 1000)):
+    """Simple exponential recovery after Gaussian shock."""
+    D_t = D_H_shock + (D_H_init - D_H_shock) * (1 - np.exp(-t / recovery_tau))
+    return t, D_t
