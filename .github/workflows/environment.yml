@@ -1,7 +1,10 @@
 name: neurofractal
-channels: [conda-forge, r]
+channels:
+  - conda-forge
+  - r
 dependencies:
-  - python=3.10
+  # Conda packages
+  - python=3.11
   - r-base=4.3
   - r-metafor
   - r-robumeta
@@ -10,5 +13,7 @@ dependencies:
   - numpy
   - matplotlib
   - seaborn
+
+  # Pip subsection (must be nested)
   - pip:
-      - rayyan-client
+      - rayyan==0.1.0
