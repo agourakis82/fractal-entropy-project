@@ -91,10 +91,27 @@ average fractal dimension $\langle D_1(t)\rangle$ across 50 replicates.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.7\linewidth]{figs/Fig5_H2_decay.pdf}
-  \caption{Transient decay of $D_1$ after a symbolic rupture ($\Lambda\!>\!0$)
-           and slow recovery to the Bernoulli equilibrium ($D_1\simeq1.17$).}
+  \caption{Time course of the average fractal dimension $\langle D_1(t)\rangle$ in response to a Gaussian shock $\Lambda(t)$ centered at $t_0 = 5\,000$ steps. The minimum and recovery phases are indicated.}
   \label{fig:H2_decay}
 \end{figure}
+
+\subsection{Test of H2: symbolic–rupture scenarios}\label{sec:H2test}
+
+Figure~\ref{fig:H2_decay} depicts the temporal response of the network
+to the Gaussian shock $\Lambda(t)$ centred at $t_0 = 5\,000$ steps.  The
+mean fractal exponent collapses from an equilibrium
+$D_1^{\text{pre}} = 1.18 \pm 0.02$ to a nadir of
+\textbf{$D_{1,\min} = 0.93 \pm 0.04$}, attained
+\textbf{$\Delta t = 650 \pm 30$ steps} after the peak of
+$\Lambda$.\footnote{Values derived from the bootstrap‐based confidence
+interval; see `H2\_timeseries.csv'.}  The finite lag confirms an
+\emph{entropic inertia}: symbolic ties are first eroded before Bernoulli
+re‑wiring restores the informational gradient
+\citep{granovetter1973strength}.  The subsequent exponential recovery
+returns the system to $D_1^{\text{eq}} = 1.17 \pm 0.01$, in remarkable
+accord with the analytical prediction under H1
+(Fig.~\ref{fig:density}).  Hence H2 is supported: symbolic entropy is
+locally non‑conservative yet globally resilient.
 
 The minimum $\langle D_1\rangle_{\min}=0.93\pm0.04$ occurs
 $\Delta t\approx650$ steps after the peak of $\Lambda$,
