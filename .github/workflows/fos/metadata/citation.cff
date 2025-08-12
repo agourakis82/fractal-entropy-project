@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "FoS Submission Package — Symbolic Wavefunctions and Entropic Fractals"
+message: "If you use this work, please cite as:"
+authors:
+  - family-names: Agourakis
+    given-names: Demetrios
+    orcid: "https://orcid.org/0000-0002-8596-5097"
+license: Apache-2.0
+repository-code: "https://github.com/agourakis82/fractal-entropy-project"
+keywords: ["philosophy of science","complex systems","quantum-like","fractal","entropy","SWOW"]

@@ -1,0 +1,15 @@
+{
+  "title": "FoS Submission Package — Symbolic Wavefunctions and Entropic Fractals",
+  "creators": [
+    {"name": "Agourakis, Demetrios", "orcid": "0000-0002-8596-5097",
+     "affiliation": "Faculdade São Leopoldo Mandic; PUC-SP"}
+  ],
+  "license": "Apache-2.0",
+  "keywords": ["philosophy of science", "complex systems", "quantum-like", "fractal", "entropy", "SWOW"],
+  "related_identifiers": [
+    {"relation": "isSupplementTo", "scheme": "url",
+     "identifier": "https://link.springer.com/journal/10699"}
+  ],
+  "notes": "SWOW data not redistributed; see Small World of Words (CC BY-NC-ND 3.0).",
+  "communities": [{"identifier": "openscience"}]
+}

@@ -1,0 +1,16 @@
+name: Protect non-FoS
+on: [pull_request]
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Block changes outside fos/
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -v '^fos/')
+          if [ -n "$CHANGED" ]; then
+            echo "Blocked changes outside 'fos/':"
+            echo "$CHANGED"
+            exit 1
