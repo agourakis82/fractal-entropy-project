@@ -1,0 +1,14 @@
+name: build-fos-pdf
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: fos/manuscript/core
+          root_file: main.tex
+          latexmk_use_xelatex: false
+          latexmk_shell_escape: false
+          extra_system_packages: "ghostscript"
