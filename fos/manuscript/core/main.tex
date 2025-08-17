@@ -1,33 +1,183 @@
-\documentclass[sn-basic]{sn-jnl}
+\documentclass[sn-basic,referee,pdflatex]{sn-jnl}
+
+% ---- compatibility shims (older sn-jnl.cls) ----
+\providecommand{\jyear}[1]{} % older class may not define \jyear
+\makeatletter
+\@ifundefined{fnm}{\newcommand{\fnm}[1]{#1}}{}
+\@ifundefined{sur}{\newcommand{\sur}[1]{#1}}{}
+\@ifundefined{orgname}{\newcommand{\orgname}[1]{#1}}{}
+\@ifundefined{orgaddress}{\newcommand{\orgaddress}[1]{#1}}{}
+\@ifundefined{city}{\newcommand{\city}[1]{#1}}{}
+\@ifundefined{country}{\newcommand{\country}[1]{#1}}{}
+\makeatother
+% ------------------------------------------------
 
 \jyear{2025}
-\title{Symbolic Wavefunctions and Entropic Fractals}
+
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{mathtools,amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage[switch]{lineno}
+\usepackage{hyperref}
+% === Canonical tags for Definitions / Premises / Registered Regularities
+\newcommand{\D}[1]{\textbf{D#1}}
+\newcommand{\PRem}[1]{\textbf{P#1}}
+\newcommand{\Rreg}[1]{\textbf{R#1}}
+
+% Nonbreaking refs for sections/figures
+\newcommand{\secref}[1]{Sec.~\ref{#1}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+
+% Small-caps for model objects if desired
+\newcommand{\state}{\textsc{state}}
+\newcommand{\barrier}{\textsc{barrier}}
+
+% Zipf/log–log notations
+\newcommand{\xmin}{x_{\min}}
+\title{The Fractal Nature of an Entropically Driven Society:\\A Disciplined Structural Analogy}
+
 \author*[1]{\fnm{Demetrios} \sur{Agourakis}}\email{demetrios@agourakis.med.br}
-\affil[1]{\orgname{Faculdade São Leopoldo Mandic}, \orgaddress{\city{Campinas}, \country{Brazil}}}
+\affil[1]{\orgname{Faculdade S\~ao Leopoldo Mandic}, \orgaddress{\city{Campinas}, \country{Brazil}}}
 
-\abstract{This is a compilation-ready skeleton for the Springer Nature SN class. Replace this abstract with your full text. The manuscript is configured to use Chicago author–year bibliography via \texttt{sn-chicago.bst} (fallback to \texttt{sn-basic.bst} if missing).}
+\abstract{This essay develops a disciplined structural-analogy program for social phenomena. We do not import physical \emph{laws}; we import \emph{forms}: scale-recursive constraints, thresholded regime shifts, and heavy-tailed allocations. On an inferential, key-based account of scientific representation, the analogy earns its keep only under an explicit \emph{representational key}, a declared \emph{domain of validity}, and \emph{misfit criteria}. We contribute: (i) a set of premises and scope conditions blocking category error; (ii) a reusable normative-landscape schema (double-well with noise) that captures regime dwell-times and barrier crossings without reductionism; (iii) a disciplined pipeline for tail analysis aligning “Zipf/power-law talk” with best practice; (iv) refutable regularities, limitations, and a reviewer-facing stress test. The stance is modest: social life is not governed by physics, yet both sometimes instantiate a small repertoire of generative forms whose constraints scale.}
 
-\keywords{philosophy of science, structural analogy, complex systems, fractals, symbolic dynamics}
+\keywords{philosophy of science; structural analogy; fractals; entropy; symbolic dynamics; heavy tails; complexity; scientific representation}
 
 \begin{document}
 \maketitle
+\linenumbers
 
-\section{Introduction}
-Replace this skeleton with your manuscript content. Cite like \citet{Hesse1966} or \citep{Bak1987,ClausetShaliziNewman2009}.
+\section{Introduction}\label{sec:intro}
+Talk of “fractals” in social life oscillates between metaphor and overreach. This paper argues for a middle path: a \emph{disciplined structural analogy} anchored in an explicit \emph{representational key} and a declared \emph{domain of validity}. The claim is modest. Many social processes are not governed by physical laws; rather, both social and physical systems sometimes share \emph{forms}---self-similarity across scales, heavy-tailed allocations, and thresholded regime shifts. When used with a key, such forms clarify organization without illicit reduction.
 
-\section{Methods/Model}
-Describe the symbolic wavefunction model $\psi_s(x,t)$, potential $V(x)$, and mass $m_s$.
+We offer four contributions. First, we articulate the stance and its limits via a set of \emph{premises} (Sec.~\ref{sec:premises}) drawing on accounts of representation and idealization \citep{Suarez2004,FriggNguyen2016,Contessa2007,Potochnik2017}. Second, we present a reusable \emph{normative-landscape schema} (double-well with noise) that captures regime dwell and barrier crossing without mechanistic identity (Sec.~\ref{sec:toy}). Third, we align empirical signatures with current best practice in tail analysis \citep{Newman2005,ClausetShaliziNewman2009}, including \emph{misfit criteria} and a transparent decision flow (Sec.~\ref{sec:emp}). Fourth, we anticipate review and register stress tests (Sec.~\ref{sec:peerreview}). The result is a vocabulary to tell when “fractal” talk earns its keep, and when it misleads.
 
-\section{Discussion}
-Discuss testability and connections to complexity science \citep{BarabasiAlbert1999,WattsStrogatz1998}.
+\section{Premises and Scope}\label{sec:premises}
 
-\section*{Statements and Declarations}
-\textbf{Funding:} Not applicable. \quad
-\textbf{Competing Interests:} The authors have no competing interests to declare that are relevant to the content of this article. \quad
-\textbf{Data/Code Availability:} Not applicable. \quad
-\textbf{Authors’ Contributions:} Single-author manuscript.
+\paragraph{Definitions (operative).}
+\textbf{(D1) Structural analogy.} A model is used to \emph{exemplify form} rather than to ascribe laws; adequacy is task-relative and key-dependent \citep{Suarez2004,FriggNguyen2016,Contessa2007}.\\
+\textbf{(D2) Representational key.} An explicit mapping from model predicates (e.g., barrier height, dwell-time) to target predicates (e.g., norm entrenchment, regime persistence).\\
+\textbf{(D3) Domain of validity.} The range of scales, aggregation choices, and institutional contexts under which the key holds.\\
+\textbf{(D4) Heavy-tail discipline.} Rank--frequency or tail analyses must compare alternatives (power law, lognormal, stretched exponential) with \(x_{\min}\) and resampled goodness-of-fit \citep{Newman2005,ClausetShaliziNewman2009}.
 
-\bibliographystyle{sn-chicago}
-\bibliography{references}
+\paragraph{Premises.}
+\textbf{P1 (Stance).} “Fractal society” is a \emph{representational stance}, not an ontological thesis: we import \emph{forms}, not \emph{laws}.\\
+\textbf{P2 (Key necessity).} Analogical claims are void without a key specifying observables, scale/granularity, and intended inferences \citep{Suarez2004,FriggNguyen2016}.\\
+\textbf{P3 (Scale-boundedness).} Claims are constrained to scales where coarse-graining preserves the qualitative phase portrait.\footnote{“Phase portrait”: the qualitative pattern of equilibria and flows in state space that a coarse-grained description preserves.}\\
+\textbf{P4 (Non-identity).} No one-to-one identification is assumed between social kinds and physical quantities; only \emph{morphological constraints}.\\
+\textbf{P5 (Methodological modesty).} Idealizations aim at \emph{understanding}, not truth simpliciter \citep{Potochnik2017}.\\
+\textbf{P6 (Symbol ecologies).} Targets are ecologies of symbols and norms; keys must state tokenization and aggregation rules.\\
+\textbf{P7 (Tail discipline).} Invocations of “Zipf/scale-free” require model comparison, \(x_{\min}\) estimation, LR-tests and GOF resampling \citep{ClausetShaliziNewman2009,Newman2005}.\\
+\textbf{P8 (Misfit/falsification).} The stance is rejected when diagnostics favor thin-tail models, when dwell/transition statistics contradict the implied phase portrait, or when registered tests fail (R1--R3).\\
+\textbf{P9 (Ethical guardrails).} Analogies cannot erase normativity; policy conclusions require arguments \emph{in addition} to morphological fit.\\
+\textbf{P10 (Pluralism).} Multiple schemata may co-exist; the present schema earns use only where it clarifies residuals others leave \citep{LadymanRoss2007,Wimsatt2007,Batterman2002}.
+
+\paragraph{Refutable regularities (registered).}
+\textbf{R1 (Dwell/transition).} Under a fixed key, dwell-time distributions are bi-/multi-modal with overdispersion vs.\ Poisson benchmarks.\\
+\textbf{R2 (Episode clustering).} Barrier-crossings exhibit burstiness beyond renewal baselines.\\
+\textbf{R3 (Tail discipline).} If “Zipf” is invoked, power-law beats lognormal/exponential by LR with valid \(x_{\min}\); otherwise the analogy misfits.
+
+\section{Representational key (exemplar mapping)}\label{sec:key}
+Table~\ref{tab:key} makes the key explicit. It licenses inferences only within the stated domain.
+
+\begin{table*}[t]
+\centering
+\caption{Representational key and risks.}
+\label{tab:key}
+\begin{tabular}{@{}p{3.2cm}p{5.2cm}p{5.2cm}p{3.2cm}@{}}
+\toprule
+\textbf{Model predicate} & \textbf{Social predicate (exemplar)} & \textbf{Operationalization / Estimation} & \textbf{Risks} \\
+\midrule
+State \(x\) & Coarse normative configuration (e.g., stance index) & PCA/embedding of tokenized claims; ordinal scaling with content coding & Reification; coding bias \\
+Barrier height \(\Delta V\) & Entrenchment of norms / switching cost & \(\Delta V = b^2/(4a)\) under \(V(x)=ax^4-bx^2\); proxies: rhetorical/institutional costs & Conflation of cost and sanction \\
+Noise \(\sigma\) & Agitation (exogenous/endogenous) & Shock indices, media bursts, latent uncertainty & Confusing noise with drift \\
+Asymmetry & Structural bias & Cubic tilt or field term; shifted minima & Endogenizing preferences \\
+Dwell-time & Regime persistence & Distribution of residence times by window & Censoring; window artifacts \\
+Crossings & Norm reconfiguration & Threshold/HMM/change-point detection & Threshold sensitivity \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{A minimal formal schema}\label{sec:toy}
+Let \(V(x)=a x^{4}-b x^{2}\) with \(a,b>0\). Minima at \(x_{\pm}=\pm\sqrt{b/(2a)}\) have value \(V(x_{\pm})=-b^{2}/(4a)\); the barrier at \(x=0\) has \(V(0)=0\). Thus the barrier height is
+\begin{equation}
+\Delta V \equiv V(0)-V(x_{\pm})=\frac{b^{2}}{4a}.
+\end{equation}
+Overdamped dynamics
+\begin{equation}
+\mathrm{d}x_{t}=-\nabla V(x_{t})\,\mathrm{d}t+\sigma\,\mathrm{d}W_{t}
+\end{equation}
+produce long dwell-times and sporadic crossings. The \emph{key} maps \(\{a,b,\sigma\}\) to \{entrenchment, antagonism, agitation\}. Figures~\ref{fig:doublewell}--\ref{fig:traj} illustrate \(V(x)\), a synthetic Zipf plot, and a noisy trajectory (toy).
+
+\section{Empirical diagnostics: protocol and micro-case}\label{sec:emp}
+We discipline tail talk and regime claims with a transparent protocol:
+\begin{enumerate}
+\item \textbf{Tokenization/aggregation (key registration).} Declare tokens/types, windowing, aggregation level; justify granularity (P2--P3).
+\item \textbf{Candidate tails.} Fit power law, lognormal, stretched exponential; estimate \(x_{\min}\); report MLEs with uncertainty \citep{Newman2005,ClausetShaliziNewman2009,Mitzenmacher2004,Simon1955}.
+\item \textbf{Model comparison.} Likelihood-ratio tests between candidates; parametric bootstrap for goodness-of-fit.
+\item \textbf{Dwell/transition statistics.} Estimate residence-time distributions; test overdispersion; detect crossings (HMM/CPD).
+\item \textbf{Misfit decision.} If tails favor thin models or dwell/transition contradict the double-well portrait, withdraw the analogy (P8; R1--R3).
+\item \textbf{Sensitivity.} Vary tokenization and windows; report stability bands .
+\end{enumerate}
+\noindent\textbf{Micro-case (illustrative).} Hashtag adoption around a policy debate: tokens as hashtag uses, window = 1 day; \(x\) as a signed stance index (embedding or supervised coding). Expect dwell in competing regimes with bursts of crossings during media shocks; rank–frequency of token types evaluated under power-law vs.\ lognormal \citep{Zipf1949,Gabaix1999,Axtell2001,BarabasiAlbert1999}.
+
+\section{Hypotheses and predictions}\label{sec:hypotheses}
+\textbf{H1 (regime dwell).} Symbol-ecology observables (adoption, sentiment, legal framing) display multi-modal residence consistent with regime dwell under perturbation.\\
+\textbf{H2 (threshold crossing).} Exogenous/endogenous agitation induces clustered transitions across normative barriers.\\
+\textbf{H3 (tail discipline).} When “Zipf” is invoked, power-law diagnostics outperform naive Zipf fits; otherwise the analogy is rejected.
+
+\section{Related work and novelty}\label{sec:related}
+Representation: inferential/key-based views \citep{Suarez2004,FriggNguyen2016,Contessa2007}. Idealization: understanding under trade-offs \citep{Potochnik2017}. Heavy tails: disciplined inference \citep{Newman2005,ClausetShaliziNewman2009,Mitzenmacher2004,Simon1955}. Empirical regularities in social systems: \citep{Zipf1949,Gabaix1999,Axtell2001,BarabasiAlbert1999}. Structural constraint and pluralism \citep{LadymanRoss2007,Wimsatt2007,Batterman2002}. Our novelty is (i) a worked \emph{normative-landscape schema} that remains agnostic about micro-mechanisms, (ii) explicit misfit tests and a reviewer-facing stress test that bound the analogy’s use.
+
+\section{Limitations and scope conditions}\label{sec:limits2}
+We exclude law-ascription and microfoundational reduction; we include schema-level explanation, qualitative prediction, and falsifiable misfit criteria under declared keys. Identifiability is limited without exogenous variation in agitation/barrier proxies . Keys must be re-registered across datasets and institutions.
+
+\section{Anticipated peer review: critiques and responses}\label{sec:peerreview}
+\textbf{C1 (Category error).} Physics colonizes the social. \emph{Reply:} P1--P4 forbid law import; only forms are imported; inference is key-bounded \citep{Suarez2004,FriggNguyen2016}.\\[2pt]
+\textbf{C2 (Metaphor overreach).} “Fractal” is rhetorical. \emph{Reply:} Schema + diagnostics + misfit criteria (Sec.~\ref{sec:emp}; P7--P8).\\[2pt]
+\textbf{C3 (Heavy-tail misuse).} Many processes yield heavy tails. \emph{Reply:} Hence model comparison, \(x_{\min}\), LR-tests, GOF resampling \citep{ClausetShaliziNewman2009,Newman2005}.\\[2pt]
+\textbf{C4 (Empirical traction).} Where is prediction? \emph{Reply:} R1--R3 register refutable regularities; failure triggers misfit.\\[2pt]
+\textbf{C5 (Normativity).} Ethics disappears. \emph{Reply:} P9 requires explicit normative argument beyond morphological fit.\\[2pt]
+\textbf{C6 (Generalizability).} Keys are parochial. \emph{Reply:} P2/P10: keys are registered and compared across contexts; pluralism is expected.
+
+\section{Visual appendix}\label{sec:appendix}
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=.72\linewidth]{Fig1.pdf}
+  \caption{Double-well normative landscape (schematic). Two stable regimes; barrier \(\Delta V=b^{2}/(4a)\).}
+  \label{fig:doublewell}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=.72\linewidth]{Fig2.pdf}
+  \caption{Synthetic Zipf rank--frequency (log--log). Diagnostic schema, not a claim about a specific dataset.}
+  \label{fig:zipf}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=.9\linewidth]{Fig3.pdf}
+  \caption{Noisy trajectory \(x(t)\) in a double-well (toy). Long dwell-times alternate with barrier crossings.}
+  \label{fig:traj}
+\end{figure}
+
+\section{Conclusion}\label{sec:conclusion}
+We are not outside the world; we act within constraints that scale. A disciplined structural stance clarifies when “fractal talk” earns its keep and when it must be withdrawn. Its value is methodological: it licenses inferences only where a key and domain of validity are explicit, and it fails gracefully under misfit.
+
+\section*{Statements and Declarations}\label{sec:decl}
+\textbf{Funding}~No specific funding.\\
+\textbf{Competing Interests}~None declared.\\
+\textbf{Ethics/Consent}~Not applicable.\\
+\textbf{Data \& Code Availability}~Figures are schematic; no datasets analyzed.\\
+\textbf{Author Contributions}~Conceptualization, methodology, writing---DA.\\
+\textbf{Acknowledgements}~Thanks to interlocutors across philosophy and complexity science for sharpening the stance on representation and idealization.
+
+\bibliographystyle{sn-basic}
+\bibliography{references_fos}
 
 \end{document}
